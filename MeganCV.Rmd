@@ -3,9 +3,9 @@ surname: Megan Barkdull
 position: "Ph.D Student"
 address: "Department of Ecology and Evolutionary Biology, Cornell University"
 profilepic: "ant.jpg"
-phone: +1 407 492 6225
+phone: "+1 407 492 6225"
 www: mbarkdull.github.io
-email: "mb2337@cornell.edu"
+email: "mb2337@cornell.edu "
 twitter: meganbarkdull_
 github: mbarkdull
 headcolor: 754f8f
@@ -104,28 +104,30 @@ detailed_entries(Teaching,
                  why = Details)
 ```
 # Publications
-```{r}
-Publications %>%
-filter(Type != "Published") %>%
-pull("Details") %>%
-pander() %>%
-catList()
-
-```
-
-**In review:**
-
+**Published:**
+\scriptsize
 ```{r}
 Publications %>%
 filter(Type == "Published") %>%
 pull("Details") %>%
 pander() %>%
 catList()
-```
 
+```
+\normalsize
+**In review:**
+\scriptsize
+```{r}
+Publications %>%
+filter(Type != "Published") %>%
+pull("Details") %>%
+pander() %>%
+catList()
+```
+\normalsize
 # Talks
 **Lightning talks:**
-
+\scriptsize
 ```{r}
 Talks %>%
 filter(Type == "Lightning") %>%
@@ -133,9 +135,9 @@ pull("Details") %>%
 pander() %>%
 catList()
 ```
-
+\normalsize
 **Posters:**
-
+\scriptsize
 ```{r}
 Talks %>%
 filter(Type == "Poster") %>%
@@ -143,7 +145,7 @@ pull("Details") %>%
 catList()
 
 ```
-
+\normalsize
 # Awards 
 ```{r}
 detailed_entries(Awards, 
@@ -175,6 +177,6 @@ detailed_entries(Outreach,
 ```
 
 
-```{r  out.width = "20%", fig.align="center"}
+```{r  out.width = "15%", fig.align="center"}
 include_graphics("ant.jpg") 
 ```
