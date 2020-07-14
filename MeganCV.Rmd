@@ -1,0 +1,180 @@
+---
+surname: Megan Barkdull
+position: "Ph.D Student"
+address: "Department of Ecology and Evolutionary Biology, Cornell University"
+profilepic: "ant.jpg"
+phone: +1 407 492 6225
+www: mbarkdull.github.io
+email: "mb2337@cornell.edu"
+twitter: meganbarkdull_
+github: mbarkdull
+headcolor: 754f8f
+date: "`r format(Sys.time(), '%B %Y')`"
+output: vitae::awesomecv
+always_allow_html: yes
+header-includes:
+  \usepackage{multicol}
+  \usepackage{colortbl}
+  \arrayrulecolor{white}
+  \usepackage{hhline}
+  \definecolor{light-gray}{gray}{0.95}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(vitae)
+library(tidyverse)
+library(pander)
+library(googlesheets4)
+library(glue)
+library(yaml)
+library(knitr)
+
+# Define a custom function for printing nice lists:
+catList <- function(x, out.format = knitr::opts_knit$get("out.format"),
+                      environment = "itemize",
+                      marker = NULL) {
+  if (out.format == "markdown") {
+    if (!missing(environment) || !missing(marker)) {
+      warning("Ignoring arguments that are not supported for markdown output.")
+    }
+    out <- sprintf("\n\n%s\n \n", paste("*", x, collapse = "\n"))
+  } else {
+    if (out.format == "latex") {
+      itemCommand <- if (missing(marker)) {
+        "\\item"
+      } else {
+          sprintf("\\item[%s]", marker)
+      }
+      listEnv <- c(
+        sprintf("\\begin{%s}\n", environment),
+        sprintf("\n\\end{%s}\n", environment))
+      out <- paste(itemCommand, x, collapse = "\n")
+      out <- sprintf("%s%s%s", listEnv[1], out, listEnv[2])
+    } else {
+      stop("Output format not supported.")
+    }
+  }
+    return(knitr::asis_output(out))
+}
+
+# Read in data:
+CVData <- read_sheet("https://docs.google.com/spreadsheets/d/1EF4cO7h3tsKhbuJta43pKPsULGgUzWdK806L1hkwF-8/edit?usp=sharing")
+
+# Process data into sub-tibbles:
+Education <- dplyr::filter(CVData, Category == "Education")
+Research <- dplyr::filter(CVData, Category == "Research Experience")
+Teaching <- dplyr::filter(CVData, Category == "Teaching")
+Awards <- dplyr::filter(CVData, Category == "Awards")
+Service <- dplyr::filter(CVData, Category == "Service")
+Outreach <- dplyr::filter(CVData, Category == "Outreach")
+Publications <- dplyr::filter(CVData, Category == "Publications")
+Talks <- dplyr::filter(CVData, Category == "Talks")
+
+```
+
+# Education 
+```{r}
+detailed_entries(Education, 
+                 when = glue("{Start}--{End}"),
+                 what = Supervisor,
+                 where = Institution,
+                 with = Position,
+                 why = Details)
+```
+
+# Research 
+```{r}
+detailed_entries(Research, 
+                 when = glue("{Start}--{End}"),
+                 what = Supervisor,
+                 where = Institution,
+                 with = Position,
+                 why = Details)
+```
+
+
+# Teaching 
+```{r}
+detailed_entries(Teaching, 
+                 when = glue("{Start}--{End}"),
+                 what = Supervisor,
+                 where = Institution,
+                 with = Position,
+                 why = Details)
+```
+# Publications
+```{r}
+Publications %>%
+filter(Type != "Published") %>%
+pull("Details") %>%
+pander() %>%
+catList()
+
+```
+
+**In review:**
+
+```{r}
+Publications %>%
+filter(Type == "Published") %>%
+pull("Details") %>%
+pander() %>%
+catList()
+```
+
+# Talks
+**Lightning talks:**
+
+```{r}
+Talks %>%
+filter(Type == "Lightning") %>%
+pull("Details") %>%
+pander() %>%
+catList()
+```
+
+**Posters:**
+
+```{r}
+Talks %>%
+filter(Type == "Poster") %>%
+pull("Details") %>%
+catList()
+
+```
+
+# Awards 
+```{r}
+detailed_entries(Awards, 
+                 when = glue("{Start}--{End}"),
+                 what = Supervisor,
+                 where = Institution,
+                 with = Position,
+                 why = Details)
+```
+
+# Service 
+```{r}
+detailed_entries(Service, 
+                 when = glue("{Start}--{End}"),
+                 what = Supervisor,
+                 where = Institution,
+                 with = Position,
+                 why = Details)
+```
+
+# Outreach 
+```{r}
+detailed_entries(Outreach, 
+                 when = glue("{Start}--{End}"),
+                 what = Supervisor,
+                 where = Institution,
+                 with = Position,
+                 why = Details)
+```
+
+
+```{r  out.width = "20%", fig.align="center"}
+include_graphics("ant.jpg") 
+```
