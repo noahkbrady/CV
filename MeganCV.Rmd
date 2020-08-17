@@ -30,7 +30,7 @@ library(glue)
 library(yaml)
 library(knitr)
 
-# Define a custom function for printing nice lists:
+# Define a custom function for printing nice lists for the publication and talks sections:
 catList <- function(x, out.format = knitr::opts_knit$get("out.format"),
                       environment = "itemize",
                       marker = NULL) {
@@ -115,7 +115,7 @@ catList()
 
 ```
 \normalsize
-**In review:**
+**In press:**
 \scriptsize
 ```{r}
 Publications %>%
