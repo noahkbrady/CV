@@ -110,7 +110,6 @@ detailed_entries(Teaching,
 Publications %>%
 filter(Type == "Published") %>%
 pull("Details") %>%
-pander() %>%
 catList()
 
 ```
@@ -118,21 +117,28 @@ catList()
 **In press:**
 \scriptsize
 ```{r}
-Publications %>%
-filter(Type != "Published") %>%
-pull("Details") %>%
-pander() %>%
-catList()
+#Publications %>%
+#filter(Type != "Published") %>%
+#pull("Details") %>%
+#catList()
 ```
 \normalsize
 # Talks
+**Oral Presentations:**
+\scriptsize
+```{r}
+Talks %>%
+filter(Type == "Oral") %>%
+pull("Details") %>%
+catList()
+```
+\normalsize
 **Lightning talks:**
 \scriptsize
 ```{r}
 Talks %>%
 filter(Type == "Lightning") %>%
 pull("Details") %>%
-pander() %>%
 catList()
 ```
 \normalsize
