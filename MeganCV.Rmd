@@ -114,7 +114,7 @@ catList()
 
 ```
 \normalsize
-**In press:**
+
 \scriptsize
 ```{r}
 #Publications %>%
@@ -152,7 +152,7 @@ catList()
 
 ```
 \normalsize
-# Awards 
+# Awards & Fellowships
 ```{r}
 detailed_entries(Awards, 
                  when = glue("{Start}--{End}"),
