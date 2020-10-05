@@ -124,6 +124,10 @@ catList()
 ```
 \normalsize
 # Talks
+\footnotesize 
+Dagger (†) indicates presenter. 
+\normalsize
+
 **Oral Presentations:**
 \scriptsize
 ```{r}
