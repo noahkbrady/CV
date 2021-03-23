@@ -1,6 +1,6 @@
 ---
 surname: Megan Barkdull
-position: "Ph.D Student"
+position: "Ph.D Student, NSF Graduate Research Fellow"
 address: "Department of Ecology and Evolutionary Biology, Cornell University"
 profilepic: "ant.jpg"
 phone: "+1 407 492 6225"
@@ -83,26 +83,6 @@ detailed_entries(Education,
                  why = Details)
 ```
 
-# Research 
-```{r}
-detailed_entries(Research, 
-                 when = glue("{Start}--{End}"),
-                 what = Supervisor,
-                 where = Institution,
-                 with = Position,
-                 why = Details)
-```
-
-
-# Teaching 
-```{r}
-detailed_entries(Teaching, 
-                 when = glue("{Start}--{End}"),
-                 what = Supervisor,
-                 where = Institution,
-                 with = Position,
-                 why = Details)
-```
 # Publications
 **Published:**
 \scriptsize
@@ -159,6 +139,28 @@ catList()
 # Awards & Fellowships
 ```{r}
 detailed_entries(Awards, 
+                 when = glue("{Start}--{End}"),
+                 what = Supervisor,
+                 where = Institution,
+                 with = Position,
+                 why = Details)
+```
+
+
+
+# Research 
+```{r}
+detailed_entries(Research, 
+                 when = glue("{Start}--{End}"),
+                 what = Supervisor,
+                 where = Institution,
+                 with = Position,
+                 why = Details)
+```
+
+# Teaching 
+```{r}
+detailed_entries(Teaching, 
                  when = glue("{Start}--{End}"),
                  what = Supervisor,
                  where = Institution,
