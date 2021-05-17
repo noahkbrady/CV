@@ -1,6 +1,6 @@
 ---
 surname: Megan Barkdull
-position: "Ph.D Student, NSF Graduate Research Fellow"
+position: "Ph.D Candidate, NSF Graduate Research Fellow"
 address: "Department of Ecology and Evolutionary Biology, Cornell University"
 profilepic: "ant.jpg"
 phone: "+1 407 492 6225"
