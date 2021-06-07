@@ -136,17 +136,40 @@ catList()
 
 ```
 \normalsize
-# Awards & Fellowships
+# Grants, Fellowships & Awards
+
+**Grants     (Total amount: $3,000)**
+\scriptsize
 ```{r}
-detailed_entries(Awards, 
-                 when = glue("{Start}--{End}"),
-                 what = Supervisor,
-                 where = Institution,
-                 with = Position,
-                 why = Details)
+Awards %>%
+filter(Type == "Grant") %>%
+pull("Details") %>%
+catList()
+
 ```
+\normalsize
 
+**Fellowships     (Total amount: $233,655)**
+\scriptsize
+```{r}
+Awards %>%
+filter(Type == "Fellowship") %>%
+pull("Details") %>%
+catList()
 
+```
+\normalsize
+
+**Awards**
+\scriptsize
+```{r}
+Awards %>%
+filter(Type == "Award") %>%
+pull("Details") %>%
+catList()
+
+```
+\normalsize
 
 # Research 
 ```{r}
