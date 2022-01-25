@@ -64,6 +64,7 @@ CVData <- read_sheet("https://docs.google.com/spreadsheets/d/1EF4cO7h3tsKhbuJta4
 # Process data into sub-tibbles:
 Education <- dplyr::filter(CVData, Category == "Education")
 Research <- dplyr::filter(CVData, Category == "Research Experience")
+Curation <- dplyr::filter(CVData, Category == "Curation")
 Teaching <- dplyr::filter(CVData, Category == "Teaching")
 Awards <- dplyr::filter(CVData, Category == "Awards")
 Service <- dplyr::filter(CVData, Category == "Service")
@@ -174,6 +175,16 @@ catList()
 # Research 
 ```{r}
 detailed_entries(Research, 
+                 when = glue("{Start}--{End}"),
+                 what = Supervisor,
+                 where = Institution,
+                 with = Position,
+                 why = Details)
+```
+
+# Curatorial Skills & Experiences 
+```{r}
+detailed_entries(Curation, 
                  when = glue("{Start}--{End}"),
                  what = Supervisor,
                  where = Institution,
