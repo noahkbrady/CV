@@ -83,30 +83,6 @@ detailed_entries(Education,
                  why = Details)
 ```
 
-# Talks
-\footnotesize 
-Dagger (†) indicates presenter. 
-\normalsize
-
-**Oral Presentations:**
-\scriptsize
-```{r}
-Talks %>%
-filter(Type == "Oral") %>%
-pull("Details") %>%
-catList()
-```
-\normalsize
-**Posters:**
-\scriptsize
-```{r}
-Talks %>%
-filter(Type == "Poster") %>%
-pull("Details") %>%
-catList()
-
-```
-
 # Research 
 ```{r}
 detailed_entries(Research, 
@@ -148,6 +124,28 @@ detailed_entries(Outreach,
 ```
 
 
+# Talks
+\footnotesize 
+\normalsize
+
+**Oral Presentations:**
+\scriptsize
+```{r}
+Talks %>%
+filter(Type == "Oral") %>%
+pull("Details") %>%
+catList()
+```
+\normalsize
+**Posters:**
+\scriptsize
+```{r}
+Talks %>%
+filter(Type == "Poster") %>%
+pull("Details") %>%
+catList()
+```
+
 ```{r  out.width = "15%", fig.align="center"}
-include_graphics("ant.jpg") 
+
 ```
